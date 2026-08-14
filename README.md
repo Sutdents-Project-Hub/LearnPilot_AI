@@ -1,97 +1,197 @@
 # 智學領航 LearnPilot AI
 
-> 目前階段：競賽／展示｜部署：目前不部署
+> **AI 智慧學習診斷與成長導航系統**
+> 目前階段：competition interactive demo｜部署：none
 
 ## 專案簡介
 
-以 React Native 與 Expo 建立的競賽型行動 Demo，透過本機假資料模擬 AI 學習狀態診斷、風險提示與下一步成長導航；不含後端、帳號與外部服務。
+智學領航把學生零散的學習紀錄轉成三個答案：
 
+1. 我現在在哪裡？
+2. 可能遇到什麼風險？
+3. 下一步怎麼走？
+
+Demo 以匿名合成資料呈現學習效率、黃金時段、科目趨勢、風險原因與個人化讀書計畫。四個主要分頁與次要互動頁已實作為可操作的 React Native／Expo Demo。
+
+## 目前完成狀態
+
+### 已完成
+
+- 完整閱讀並整理 `docs/` 內 10 頁 PPTX 與 2 頁 DOCX 企劃來源
+- Students Project Profile v1 驗證
+- Expo SDK 57 官方 `default` template
+- TypeScript、Expo Router 與 pnpm lockfile
+- 單一 root Git repository 與專案工作規則
+- 產品、架構、競賽、資料、AI 與隱私規劃
+- LearnPilot 品牌化四分頁：今日、分析、計畫、歷程
+- 本機合成 fixture、可解釋效率／黃金時段／風險／建議規則
+- 新增學習紀錄、任務勾選、接受／略過建議、成長情境與重設流程
+- Vitest 8 項純函式測試與 Web 互動驗收
+
+### 尚未實作／未驗證
+
+- 真實 AI、backend、database、登入、雲端同步與部署
+- iOS Simulator、Android Emulator 與實體 Expo Go 驗收
+- 元件／端對端自動化測試與正式競賽錄影
+
+`app/` 不再保留可操作的 Expo starter 頁面；所有主要導覽皆為 LearnPilot Demo。
+
+## 核心 Demo 範圍
+
+- 今日學習狀態與下一步
+- 學習紀錄與歷程時間線
+- 高效率／黃金學習時段
+- 科目能力與成長趨勢
+- 可解釋的學習風險提示
+- 個人化讀書計畫
+- 成長回顧與競賽展示流程
+
+LearnPilot Demo 的核心流程僅使用本機匿名合成資料與規則式模擬，不處理真實學生個資，也不依賴外部網路；已移除 Expo starter 的外部文件頁面。
 
 ## 專案資訊
 
-- Repository：`LearnPilot_AI`
-- Project slug：`learnpilot-ai`
-- 產品型態：`app`
-- Bootstrap 模式：`executable`
-- 技術政策：使用者未指定時採公司技術基線；已指定的學生選型以 Profile 為準。
-
-
-## 命名對照
-
-| 用途 | 名稱 |
+| 項目 | 值 |
 |---|---|
-| GitHub repository／本機根資料夾 | `LearnPilot_AI` |
+| Project name | 智學領航 LearnPilot AI |
+| Repository／本機根目錄 | `LearnPilot_AI` |
 | Project slug | `learnpilot-ai` |
-| 本機 Docker Compose project | `learnpilot_ai` |
-
-
-- 主要 Compose 檔若存在，頂層固定為 `name: learnpilot_ai`；service 使用責任角色，原則上不設定 `container_name`。
-
-
-
-## 目標與主要功能
-
-- 學習狀態總覽與今日導航
-- 學習紀錄與歷程時間線
-- 高效率學習時段辨識
-- 科目能力與成長趨勢分析
-- 學習風險預警
-- 個人化讀書計畫與下一步策略
-- 競賽 Demo 展示流程
-
-- 只列入本階段已確認、可展示或可驗收的功能；構想與未來功能請明確標示為非本階段範圍。
+| Stage | `competition` |
+| Product type | `app` |
+| Bootstrap mode | `executable` |
+| Deployment | `none` |
+| Local Compose name | `learnpilot_ai`（保留名稱，目前未建立 Compose） |
 
 ## 技術與元件
 
-| 路徑 | 責任 | 技術 | 狀態 |
-|---|---|---|---|
-| `app` | 行動應用程式 | Expo | 已要求實體 bootstrap；以 manifest 與 lockfile 驗證 |
+唯一元件是 [`app/`](app/README.md)，它本身就是 Expo framework root。
+
+| 技術 | 實際版本 |
+|---|---|
+| Node.js | `24.19.0` |
+| pnpm | `11.16.0`（專案 pin；初始化曾使用 `11.19.0`） |
+| Expo SDK | `57.0.12` |
+| React Native | `0.86.2` |
+| React | `19.2.3` |
+| TypeScript | `6.0.3` |
+| Expo Router | `57.0.12` |
 
 ## 專案結構
 
-- 新專案使用固定 component root；每個 component 本身就是 framework root，不再建立 project-name 或 framework-name wrapper。
-- 目前只記錄已核准且實際需要的元件；不建立未使用的空資料夾。
-- 每個獨立元件直接擁有自己的 manifest、lockfile、README、環境範例與框架慣例。
+```text
+LearnPilot_AI/
+├── app/                    # React Native／Expo framework root
+│   ├── src/app/            # Expo Router routes
+│   ├── package.json
+│   ├── pnpm-lock.yaml
+│   └── app.json
+├── docs/                   # 企劃來源與權威規劃文件
+├── .github/                # 團隊協作範本
+├── AGENTS.md               # 專案工作與安全規則
+└── README.md
+```
+
+未建立 `backend/`、`database/`、`web/` 或空的 speculative component。
 
 ## 快速開始
 
-初始化器已確認 framework manifest、選定的 lockfile 與 Profile 要求的品質 script 存在；這不代表指令已執行成功。請實際執行元件 README 列出的檢查，然後補上已驗證的前置需求、安裝、啟動、port 與本機 URL。
+前置需求：
+
+- Node.js 24 LTS
+- pnpm `11.16.0`
+
+本機若目前預設為 Node.js 26／pnpm 10，可在此 Mac 先切到已安裝的 Node.js 24；專案的 `packageManager` 會檢查 pnpm 版本：
+
+```bash
+export PATH="/opt/homebrew/opt/node@24/bin:$PATH"
+node --version
+pnpm --version
+```
+
+預期為 Node.js `v24.x` 與 pnpm `11.16.0`。若其他環境尚未安裝，請先安裝 Node.js 24 LTS 與 pnpm `11.16.0`，不要直接使用本機目前的 Node.js 26／pnpm 10。
+
+在 repository root 執行：
+
+```bash
+pnpm --dir app install
+pnpm --dir app start
+```
+
+可選載體：
+
+```bash
+pnpm --dir app web
+pnpm --dir app ios
+pnpm --dir app android
+```
+
+初始化階段已實際驗證 `lint`、TypeScript check 與 Web 啟動；iOS Simulator、Android Emulator、Expo Go 實機尚未驗證。
 
 ## 測試與品質
 
-只記錄實際存在且已執行成功的 lint、typecheck、test、build 或手動驗收方式。若目前沒有自動化測試，請明確記錄主要人工驗收流程與限制。
+目前可用：
+
+```bash
+pnpm --dir app lint
+pnpm --dir app exec tsc --noEmit
+pnpm --dir app test
+```
+
+已完成驗證（2026-08-14）：
+
+- `pnpm --dir app lint`：通過
+- `pnpm --dir app exec tsc --noEmit`：通過
+- `pnpm --dir app test`：8 項純函式測試通過
+- `pnpm --dir app exec expo export --platform web`：14 條靜態路由與 Web bundle 成功
+- Playwright：已操作今日／分析／計畫／歷程、風險詳情、建議接受、任務完成、新增紀錄、表單驗證、成長情境與重設
+- Browser console：0 errors、0 warnings
+- Browser localStorage：無項目；非靜態外部請求：0
+- 375px 寬度手機版面：已檢視，無水平溢位
+
+Web 驗證確認 LearnPilot Demo 功能流程可操作；原生載體與深色模式仍需另行人工驗收。
 
 ## 環境變數與敏感資訊
 
-- 真實值只存放於本機或部署平台，不提交 `.env`。
-- 以 `.env.example` 記錄必要的變數名稱、用途與安全 placeholder；公開前端設定不可用來保存秘密。
+- 目前沒有必要的環境變數，因此不建立 `.env.example`。
+- 不得放入 API key、帳號、真實學生資料、學校資料或未授權素材。
+- App bundle 中的任何值都視為公開資訊。
+- Demo fixture 必須完全合成且明確標示。
 
 ## 部署狀態
 
-目前狀態：目前不部署。只有在設定與流程實際驗證後，才補上平台、base directory、build/start command、port、healthcheck、資料與回滾方式。
+目前不部署，不建立 Expo/EAS account、App Store／Google Play、domain、backend、database、Coolify 或其他雲端資源。
+
+正式展示載體仍待確認。Expo 官方在 SDK 57 過渡期提醒商店版 Expo Go 實機可能需要 SDK 54，因此競賽應同時準備模擬器或 Web fallback。
 
 ## Git 與版本控制
 
-- Repository 名稱：`LearnPilot_AI`
-- 全新專案由初始化器建立本機 `main` branch，並在安全掃描後以 `chore(init): 初始化學生專案結構` 提交本次初始化產物。
-- 既有 Git repository 保留原 branch 與歷史，不自動 commit。
-- 初始化不設定 `user.name`／`user.email`，不建立 remote，也不 push；後續 Git 操作遵守 [AGENTS.md](AGENTS.md)。
-- 後續操作先以 `git remote -v` 判斷本機或遠端模式；只要求 commit 時維持目前分支，獲准合併並驗證 `main` 後才安全關閉已完整合併的任務 branch。
+- Branch：`main`
+- 安全初始 commit：`3ba6263 chore(init): 初始化學生專案結構`
+- Remote：未設定
+- 未 push、未建立 GitHub repository
+- 初始 commit 只包含 Students Project Init 建立的 11 個文件；Expo skeleton、企劃來源與後續規劃仍依使用者授權決定是否提交
+
+後續操作遵守 [AGENTS.md](AGENTS.md)，每次 Git 操作先檢查 status、branch、remote 與敏感內容。
 
 ## 文件索引
 
 - [專案 Profile](docs/project-profile.md)
+- [產品範圍、功能與里程碑](docs/project-overview.md)
 - [系統架構與元件邊界](docs/architecture.md)
-- [專案範圍與驗收](docs/project-overview.md)
-- [競賽與展示準備](docs/competition.md)
+- [競賽與 Demo 規劃](docs/competition.md)
+- [資料與儲存規劃](docs/data-and-storage.md)
+- [外部整合與 AI 邊界](docs/integrations.md)
 - [安全、身份與隱私](docs/security-and-privacy.md)
-- [資料與儲存](docs/data-and-storage.md)
-- [外部整合與 AI](docs/integrations.md)
-- [app 元件說明](app/README.md)
+- [App 元件說明](app/README.md)
+- [原始企劃簡報](<docs/AI 學習狀態分析系統Jason11.pptx>)
+- [原始黑客松創意構想](<docs/智慧學習隊_黑客松創意構想.docx>)
 
-## 維護與交接
+## 重要未決策
 
-- 開發規則與變更分類請見 [AGENTS.md](AGENTS.md)。
-- 功能、架構、指令、環境變數、資料、測試、部署、競賽內容或限制改變時，在同一任務同步更新擁有該事實的 README／`docs/`／元件文件；文件同步是完成條件。
-- 優先維護既有權威文件，不為了形式建立空文件；若沒有文件需要變更，完成回報需說明理由。
-- LICENSE、資料集、模型與素材授權須依作者、學校及競賽規則確認，不由初始化工具自行決定。
+- 競賽正式規則、截止日、評分標準與 Demo 時長
+- 目標學生年段與正式科目範圍
+- 主要展示載體
+- 規則權重與門檻目前為 `rules-v1` Demo 設定，尚未具教育研究驗證
+- 品牌 icon、色彩、字型與素材授權
+- 專案 LICENSE
+
+功能、架構、資料、指令、依賴、競賽主張或限制改變時，必須在同一任務同步 README、元件 README 與相關 `docs/`；文件同步是完成條件。

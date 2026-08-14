@@ -18,6 +18,8 @@ quotations/
 
 # Dependencies, build, and local tools
 node_modules/
+.pnpm-store/
+.playwright-cli/
 .dart_tool/
 .venv/
 venv/

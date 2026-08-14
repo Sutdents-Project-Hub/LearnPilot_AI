@@ -24,7 +24,7 @@
 
 ### 專案限制
 
-- 只初始化可運行的官方 Expo TypeScript 骨架，不實作 LearnPilot 產品功能
+- 本輪已完成可操作的 LearnPilot competition Demo；後續不得把 Demo 規則誤稱為真實 AI／教育預測
 - 只建立 app 元件；不建立 backend、database、auth、CMS、worker 或外部 API
 - Demo 僅使用本機假資料與可解釋規則模擬 AI 結果，不處理真實學生個資
 - 本輪不部署、不建立外部帳號、雲端資源或正式資料整合
@@ -51,11 +51,22 @@
 
 - `app`：行動應用程式；依 `Expo` 的官方慣例維護，不可把其他元件的秘密或責任移入此處。
 
+### 目前實作證據
+
+- `app/package.json`、`app/pnpm-lock.yaml`、`app/app.json` 與 `app/src/app/` 已由 Expo 官方 `default@sdk-57` template 建立。
+- 實際版本：Node.js `24.19.0`、pnpm `11.19.0`、Expo SDK `57.0.12`、React Native `0.86.2`、React `19.2.3`、TypeScript `6.0.3`。
+- 目前主路由位於 `app/src/app/(tabs)/`，包含今日、分析、計畫與歷程；secondary route 包含新增紀錄、風險詳情、建議詳情與 Demo 揭露。
+- 目前沒有必要的環境變數、backend、database、外部 AI API 或 deployment resource。
+- `app/eslint.config.js` 與 Vitest 已建立；`lint`、`tsc --noEmit`、8 項 domain test、Web static export 與主要 Playwright 流程已於 2026-08-14 實際通過。
+- `app/pnpm-workspace.yaml` 僅允許 `unrs-resolver` 的必要 platform binding script；新增或放寬 dependency build script 前必須審查用途與供應鏈風險。
+- `app/.git` 已在確認為本次官方 initializer 新建且沒有既有歷史後移除；repository 只保留 root `.git/`。
+- LICENSE 尚未決定，不得重新加入 template LICENSE 或自行選擇授權。
+
 - Repository 與新專案根目錄名稱維持 `LearnPilot_AI`；技術資源優先使用 `learnpilot-ai` 或平台既有慣例。
 - 新 repository 名稱使用 ASCII 品牌大小寫並以 `_` 分隔多字名稱；不得使用空白、句點或 `-`。Project slug 與一般多字技術名稱使用 lowercase kebab-case。
 - 新專案固定 component root 為 `web/`、`app/`、`cms/`、`backend/`、`worker/`、`database/`、`packages/`、`infra/`、`design/`；學生硬體專案可使用 `hardware/`。其他結構必須在 Profile 記錄 `structure_exception`。
 - `app/` 本身就是 framework root；同理，Framework manifest 與 lockfile 必須直接位於核准的 component root。禁止 `app/<project-name>/package.json`、`web/<project-name>/package.json` 或 framework-name wrapper。
-- `app/app/` 可以是 Expo Router 路由，`web/app/` 可以是 Next.js App Router；只要其中沒有另一份 component manifest，就不是 wrapper。
+- `app/src/app/` 是本專案目前的 Expo Router 路由；`app/app/` 也可能是合法的 Expo Router 慣例，`web/app/` 可以是 Next.js App Router。只要其中沒有另一份 component manifest，就不是 wrapper。
 - Repository 預設只保留根目錄一個 `.git/`；官方 initializer 產生的 component nested .git 必須在確認沒有既有歷史後移除，無法確認時停止。
 - 保留現有且可工作的專案結構與框架慣例；新增元件時才選擇清楚、簡短、符合責任的路徑。
 - 不因範本而重新命名既有資料夾，不建立未使用的 `app/`、`web/`、`backend/`、`docs/` 或部署資源。
@@ -90,6 +101,7 @@
 - 未驗證的指令、port、URL、帳號、部署值或 healthcheck 必須標示為尚未驗證，不得猜測。
 - 功能、架構、依賴、指令、環境變數、資料、部署或限制改變時，同步更新根 README、相關元件 README 與 `docs/`。
 - 競賽專案若有 `docs/competition.md`，同步維護問題、對象、展示流程、證據來源、限制與提交清單。
+- 產品範圍與驗收以 `docs/project-overview.md` 為主，架構以 `docs/architecture.md` 為主；不得讓程式中的規則、route、fixture 或能力狀態和文件各自演進。
 
 ## 資料、秘密與授權
 

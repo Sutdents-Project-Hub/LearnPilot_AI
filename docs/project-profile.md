@@ -20,7 +20,32 @@
 
 ## 元件
 
-- `app`：path=`app`，kind=`app`，framework=`Expo`，package_manager=`pnpm`，quality=lint，technology_source=`specified`
+- `app`：path=`app`，kind=`app`，framework=`Expo`，package_manager=`pnpm`，quality=lint+test，technology_source=`specified`
+
+## Bootstrap 證據
+
+- Framework root：`app/`
+- Manifest：`app/package.json`
+- Lockfile：`app/pnpm-lock.yaml`
+- Expo config：`app/app.json`
+- Source routes：`app/src/app/`
+- Node.js：`24.19.0`
+- pnpm：`11.16.0`（專案 pin；初始化曾使用 `11.19.0`）
+- Expo SDK：`57.0.12`
+- React Native：`0.86.2`
+- TypeScript：`6.0.3`
+- Nested Git：已移除由 Expo initializer 產生的 `app/.git`；repository 只保留根 `.git/`
+- LICENSE：尚未決定；已移除官方 template 自動帶入的 LICENSE
+- 產品功能：已實作 competition Demo；包含四個主分頁、secondary detail routes、合成 fixture、in-memory session、規則式分析與重設
+- Initial local commit：`3ba6263`（只包含 Students Project Init 建立的 11 個初始化文件）
+- Remote：未設定；未 push
+- `pnpm --dir app lint`：已通過
+- `pnpm --dir app exec tsc --noEmit`：已通過
+- `pnpm --dir app test`：8 項 domain test 已通過
+- Expo Web：`expo export --platform web` 已產生 14 條靜態路由；Playwright 已完成主要流程與 375px 視覺檢查
+- Browser console：0 errors、0 warnings
+- Browser localStorage：無項目；非靜態外部請求：0
+- iOS Simulator／Android Emulator／Expo Go：尚未驗證
 
 ## 功能領域
 
@@ -59,3 +84,9 @@
 - 正式資料取得方式、效率公式、風險門檻與 AI 方法尚未決定
 - 競賽名稱、評分標準、提交格式、截止日與素材授權規則尚待確認
 - 正式部署、真實雲端同步、跨平台整合與資料保護方案尚未核准
+
+## 來源文件狀態
+
+- `docs/AI 學習狀態分析系統Jason11.pptx`：10 頁概念簡報，保留原檔；品牌與能力狀態尚待未來另案同步。
+- `docs/智慧學習隊_黑客松創意構想.docx`：2 頁創意構想與故事板，保留原檔。
+- 兩份來源內的外部統計缺少完整出處，暫不作為已驗證證據。
