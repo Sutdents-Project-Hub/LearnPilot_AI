@@ -166,9 +166,8 @@ Web 驗證確認 LearnPilot Demo 功能流程可操作；原生載體與深色�
 
 - Branch：`main`
 - 安全初始 commit：`3ba6263 chore(init): 初始化學生專案結構`
-- Remote：未設定
-- 未 push、未建立 GitHub repository
-- 初始 commit 只包含 Students Project Init 建立的 11 個文件；Expo skeleton、企劃來源與後續規劃仍依使用者授權決定是否提交
+- Remote：`origin` → `https://github.com/Sutdents-Project-Hub/LearnPilot_AI.git`
+- 目前主線已包含可執行 Demo 與 MIT License；原始企劃來源檔保留於本機，公開前仍需確認再散布權
 
 後續操作遵守 [AGENTS.md](AGENTS.md)，每次 Git 操作先檢查 status、branch、remote 與敏感內容。
 
@@ -192,6 +191,6 @@ Web 驗證確認 LearnPilot Demo 功能流程可操作；原生載體與深色�
 - 主要展示載體
 - 規則權重與門檻目前為 `rules-v1` Demo 設定，尚未具教育研究驗證
 - 品牌 icon、色彩、字型與素材授權
-- 專案 LICENSE
+- 第三方素材與原始企劃來源的公開授權
 
 功能、架構、資料、指令、依賴、競賽主張或限制改變時，必須在同一任務同步 README、元件 README 與相關 `docs/`；文件同步是完成條件。

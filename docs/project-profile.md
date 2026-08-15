@@ -35,7 +35,7 @@
 - React Native：`0.86.2`
 - TypeScript：`6.0.3`
 - Nested Git：已移除由 Expo initializer 產生的 `app/.git`；repository 只保留根 `.git/`
-- LICENSE：尚未決定；已移除官方 template 自動帶入的 LICENSE
+- LICENSE：MIT License（依使用者明確要求新增）
 - 產品功能：已實作 competition Demo；包含四個主分頁、secondary detail routes、合成 fixture、in-memory session、規則式分析與重設
 - Initial local commit：`3ba6263`（只包含 Students Project Init 建立的 11 個初始化文件）
 - Remote：未設定；未 push

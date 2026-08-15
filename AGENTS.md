@@ -60,7 +60,7 @@
 - `app/eslint.config.js` 與 Vitest 已建立；`lint`、`tsc --noEmit`、8 項 domain test、Web static export 與主要 Playwright 流程已於 2026-08-14 實際通過。
 - `app/pnpm-workspace.yaml` 僅允許 `unrs-resolver` 的必要 platform binding script；新增或放寬 dependency build script 前必須審查用途與供應鏈風險。
 - `app/.git` 已在確認為本次官方 initializer 新建且沒有既有歷史後移除；repository 只保留 root `.git/`。
-- LICENSE 尚未決定，不得重新加入 template LICENSE 或自行選擇授權。
+- LICENSE 已依使用者明確要求採用 MIT License；未經使用者明確要求，不自行改用其他授權。
 
 - Repository 與新專案根目錄名稱維持 `LearnPilot_AI`；技術資源優先使用 `learnpilot-ai` 或平台既有慣例。
 - 新 repository 名稱使用 ASCII 品牌大小寫並以 `_` 分隔多字名稱；不得使用空白、句點或 `-`。Project slug 與一般多字技術名稱使用 lowercase kebab-case。
@@ -108,7 +108,7 @@
 - 真實 API key、token、secret、password、private key、cookie、憑證、Webhook URL、production `.env`、個資與未公開資料不得寫入程式、文件、log、commit 或範例。
 - `.env.example` 只保留變數名稱與安全 placeholder；前端或 App 可見的設定不得被當成秘密，敏感操作必須由可信任後端或平台執行。
 - 合約、協議、報價、法務／商業文件、客戶或學生個資預設不提交；若專案確實需要公開的競賽文件，先逐檔確認內容與授權。
-- 使用資料集、模型、圖片、字型、套件或程式碼前確認來源、授權與競賽規則；README 記錄必要 attribution，不自行選擇 LICENSE。
+- 使用資料集、模型、圖片、字型、套件或程式碼前確認來源、授權與競賽規則；README 記錄必要 attribution。專案根目錄的授權以 `LICENSE` 為準。
 
 ## Git、Commit 與 Pull Request
 

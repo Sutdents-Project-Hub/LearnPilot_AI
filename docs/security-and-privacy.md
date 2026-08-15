@@ -64,7 +64,7 @@ Demo 需在可到達位置揭露：
 
 - `.env`、key、certificate、credentials、contracts、legal、quotations 已由根 `.gitignore` 排除。
 - 原始企劃 PPTX／DOCX 不是合約，但仍需在公開 repository 前確認素材、學生／團隊資訊與再散布權。
-- 不自行選擇 LICENSE。
+- 專案根目錄使用 MIT License；第三方素材、字型與企劃來源仍須逐項確認公開與再散布權。
 - Commit／push 前依 `AGENTS.md` 掃描 staged、unstaged 與 untracked。
 
 ## 7. 真實產品前置條件

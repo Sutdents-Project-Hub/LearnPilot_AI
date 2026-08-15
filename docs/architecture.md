@@ -332,4 +332,4 @@ Server state library 不適用，因本階段沒有 server。
 - 優先使用 Expo SDK 內建或官方維護套件。
 - 新依賴前確認用途、Expo SDK 57 相容性、授權、維護狀態與替代方案。
 - 不因範本或方便加入 analytics、auth、AI、cloud SDK。
-- 專案 LICENSE 尚未決定；官方 template 自動產生的 LICENSE 已從專案移除，避免錯誤宣告授權。
+- 專案使用根目錄 `LICENSE` 的 MIT License；第三方依賴與素材仍依各自授權條款處理。
