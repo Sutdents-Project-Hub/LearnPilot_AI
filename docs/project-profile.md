@@ -39,7 +39,7 @@
 - LICENSE：MIT License（依使用者明確要求新增）
 - 產品功能：已實作 competition Demo；包含四個主分頁、secondary detail routes、合成 fixture、in-memory session、規則式分析與重設
 - Initial local commit：`3ba6263`（只包含 Students Project Init 建立的 11 個初始化文件）
-- Remote：未設定；未 push
+- Remote：`origin` → `https://github.com/Sutdents-Project-Hub/LearnPilot_AI.git`；已推送
 - `pnpm --dir app lint`：已通過
 - `pnpm --dir app exec tsc --noEmit`：已通過
 - `pnpm --dir app test`：8 項 domain test 已通過
@@ -47,6 +47,7 @@
 - Browser console：0 errors、0 warnings
 - Browser localStorage：無項目；非靜態外部請求：0
 - Android release APK：2026-08-16 已由 `:app:assembleRelease` 成功建置，v2 簽章與 manifest 已驗證；debug certificate 僅供側載測試
+- 學生下載 APK：`downloads/LearnPilot-AI-v1.0.0-android-debug-signed.apk` 已納入 repository，並提供同目錄 SHA-256 校驗碼；尚未在實體裝置驗收
 - iOS Simulator／Android Emulator／實體裝置：尚未驗證
 
 ## 功能領域

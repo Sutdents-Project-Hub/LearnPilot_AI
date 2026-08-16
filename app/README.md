@@ -76,7 +76,7 @@ pnpm --dir app web
 ## Android 側載包裝
 
 - `app.json` 的 Android application ID 是 `ai.learnpilot.demo`，versionCode 是 `1`；這是目前展示 APK 使用的 identity，尚未註冊 Google Play。
-- 本次輸出為 release-mode、Android debug certificate 簽署的 APK，僅供側載測試；可在 `dist/android/` 找到，但該資料夾已忽略、不可當成受版本控制的 release。
+- 本次輸出為 release-mode、Android debug certificate 簽署的 APK，僅供側載測試；供學生下載的受版本控制副本是 [`../downloads/LearnPilot-AI-v1.0.0-android-debug-signed.apk`](../downloads/LearnPilot-AI-v1.0.0-android-debug-signed.apk)，原始建置輸出仍在已忽略的 `dist/android/`。校驗碼與安裝注意事項見 [`../downloads/README.md`](../downloads/README.md)。
 - `blockedPermissions` 會移除 `SYSTEM_ALERT_WINDOW` 與舊版外部儲存權限。2026-08-16 的成品 manifest 僅含 framework 所需的 normal permissions：`INTERNET`、`ACCESS_NETWORK_STATE`、`VIBRATE`。
 - `expo prebuild` 會生成被忽略的 `android/` 目錄，並可能暫時改寫 `package.json` 的 Android／iOS 開發 scripts；保留 managed Expo script，且不提交生成的 native 目錄。
 - iOS 尚未設定 bundle identifier、Apple Team 或 signing profile；沒有 `.ipa`、`.mobileprovision` 或 `.mobileconfig` 交付檔。

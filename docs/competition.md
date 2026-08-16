@@ -80,7 +80,7 @@
 
 ## 5. 展示環境策略
 
-Expo SDK 57 的離線 Demo 已完成；本輪以 Web static export 做實際展示驗收。2026-08-16 已成功產生可側載的 Android release-mode APK（debug certificate 簽署），但尚未完成原生裝置上的人工安裝與操作確認。
+Expo SDK 57 的離線 Demo 已完成；本輪以 Web static export 做實際展示驗收。2026-08-16 已成功產生可側載的 Android release-mode APK（debug certificate 簽署），學生可從 repository 的 [`downloads/`](../downloads/README.md) 下載，並以同目錄 SHA-256 檔校驗；但尚未完成原生裝置上的人工安裝與操作確認。
 
 建議準備：
 

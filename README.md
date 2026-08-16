@@ -80,6 +80,7 @@ LearnPilot Demo 的核心流程僅使用本機匿名合成資料與規則式模�
 
 ```text
 LearnPilot_AI/
+├── downloads/              # 學生可下載的 Android 側載展示檔與校驗碼
 ├── app/                    # React Native／Expo framework root
 │   ├── src/app/            # Expo Router routes
 │   ├── package.json
@@ -92,6 +93,23 @@ LearnPilot_AI/
 ```
 
 未建立 `backend/`、`database/`、`web/` 或空的 speculative component。
+
+## 學生下載與檔案導航
+
+目前只提供 Android 側載展示版；Windows `.exe`、macOS `.dmg`、iOS `.ipa` 與 iPhone 描述檔尚未建立。
+
+| 目的 | 位置 |
+|---|---|
+| 直接下載並安裝 Android APK | [LearnPilot-AI-v1.0.0-android-debug-signed.apk](https://github.com/Sutdents-Project-Hub/LearnPilot_AI/raw/refs/heads/main/downloads/LearnPilot-AI-v1.0.0-android-debug-signed.apk) |
+| 確認下載檔完整性 | [SHA-256 校驗碼](downloads/LearnPilot-AI-v1.0.0-android-debug-signed.apk.sha256) |
+| 查看可下載檔與安裝注意事項 | [downloads/README.md](downloads/README.md) |
+| 啟動或修改 App | [app/README.md](app/README.md) |
+| 畫面路由 | [app/src/app/](app/src/app/) |
+| 規則式分析與測試 | [app/src/domain/](app/src/domain/) |
+| 匿名合成示範資料 | [app/src/fixtures/](app/src/fixtures/) |
+| 專案規格、架構與競賽說明 | [docs/](docs/) |
+
+Android 安裝步驟：在 Android 7.0（API 24）以上裝置下載 APK，從「下載」開啟檔案，僅在系統要求時授權**本次下載來源**安裝未知 App，完成後點選「安裝」。若 Android 的安全機制封鎖檔案或校驗碼不一致，請停止安裝並回報專案維護者；不要停用 Play Protect 或略過系統警告。此展示版尚未完成實體 Android 裝置驗收。
 
 ## 快速開始
 
@@ -129,9 +147,9 @@ pnpm --dir app android
 
 ## Android APK 側載測試檔
 
-本機已於 2026-08-16 產出 release-mode APK，交付檔位於已忽略的 `app/dist/android/`。它的 Android application ID 為 `ai.learnpilot.demo`、version `1.0.0`／versionCode `1`、最低支援 Android 7.0（API 24）。
+已於 2026-08-16 產出 release-mode APK，學生交付檔位於 [`downloads/LearnPilot-AI-v1.0.0-android-debug-signed.apk`](downloads/LearnPilot-AI-v1.0.0-android-debug-signed.apk)；原始建置輸出仍保留在已忽略的 `app/dist/android/`。它的 Android application ID 為 `ai.learnpilot.demo`、version `1.0.0`／versionCode `1`、最低支援 Android 7.0（API 24）。
 
-此檔使用 Android debug certificate 簽署，僅供競賽展示與側載測試，**不可**上傳 Google Play 或視為正式簽署版。`app.json` 明確排除不需要的 overlay 與舊版外部儲存權限；prebuild 生成的 `app/android/` 也是 ignored 衍生物，不納入 repository。
+此檔使用 Android debug certificate 簽署，僅供競賽展示與側載測試，**不可**上傳 Google Play 或視為正式簽署版。下載前可用同目錄的 SHA-256 檔確認完整性。`app.json` 明確排除不需要的 overlay 與舊版外部儲存權限；prebuild 生成的 `app/android/` 也是 ignored 衍生物，不納入 repository。
 
 要重新建立相同類型的 APK，需要 JDK 17、Android SDK（API／Build Tools 36）與 NDK `27.1.12297006`；先執行 `expo prebuild --platform android --no-install`，再於 `app/android/` 執行 `:app:assembleRelease`。仍需在實體 Android 裝置上完成安裝與完整 Demo 操作驗收。
 
