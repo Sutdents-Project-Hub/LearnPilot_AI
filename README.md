@@ -27,11 +27,12 @@ Demo 以匿名合成資料呈現學習效率、黃金時段、科目趨勢、風
 - 本機合成 fixture、可解釋效率／黃金時段／風險／建議規則
 - 新增學習紀錄、任務勾選、接受／略過建議、成長情境與重設流程
 - Vitest 8 項純函式測試與 Web 互動驗收
+- Android release-mode APK 建置、manifest 與簽章結構驗證
 
 ### 尚未實作／未驗證
 
 - 真實 AI、backend、database、登入、雲端同步與部署
-- iOS Simulator、Android Emulator 與實體 Expo Go 驗收
+- iOS Simulator／實體 iPhone、Android Emulator／實體 Android 的實際安裝與操作驗收
 - 元件／端對端自動化測試與正式競賽錄影
 
 `app/` 不再保留可操作的 Expo starter 頁面；所有主要導覽皆為 LearnPilot Demo。
@@ -124,7 +125,15 @@ pnpm --dir app ios
 pnpm --dir app android
 ```
 
-初始化階段已實際驗證 `lint`、TypeScript check 與 Web 啟動；iOS Simulator、Android Emulator、Expo Go 實機尚未驗證。
+初始化階段已實際驗證 `lint`、TypeScript check 與 Web 啟動；Android release APK 已於 2026-08-16 實際建置，但 iOS Simulator、Android Emulator 與實體裝置尚未驗證。
+
+## Android APK 側載測試檔
+
+本機已於 2026-08-16 產出 release-mode APK，交付檔位於已忽略的 `app/dist/android/`。它的 Android application ID 為 `ai.learnpilot.demo`、version `1.0.0`／versionCode `1`、最低支援 Android 7.0（API 24）。
+
+此檔使用 Android debug certificate 簽署，僅供競賽展示與側載測試，**不可**上傳 Google Play 或視為正式簽署版。`app.json` 明確排除不需要的 overlay 與舊版外部儲存權限；prebuild 生成的 `app/android/` 也是 ignored 衍生物，不納入 repository。
+
+要重新建立相同類型的 APK，需要 JDK 17、Android SDK（API／Build Tools 36）與 NDK `27.1.12297006`；先執行 `expo prebuild --platform android --no-install`，再於 `app/android/` 執行 `:app:assembleRelease`。仍需在實體 Android 裝置上完成安裝與完整 Demo 操作驗收。
 
 ## 測試與品質
 
@@ -136,7 +145,7 @@ pnpm --dir app exec tsc --noEmit
 pnpm --dir app test
 ```
 
-已完成驗證（2026-08-14）：
+已完成驗證：
 
 - `pnpm --dir app lint`：通過
 - `pnpm --dir app exec tsc --noEmit`：通過
@@ -146,8 +155,9 @@ pnpm --dir app test
 - Browser console：0 errors、0 warnings
 - Browser localStorage：無項目；非靜態外部請求：0
 - 375px 寬度手機版面：已檢視，無水平溢位
+- 2026-08-16 `:app:assembleRelease`：成功；APK 為 98 MB，v2 簽章有效，package ID／版本／最低 SDK 與 manifest 已靜態驗證
 
-Web 驗證確認 LearnPilot Demo 功能流程可操作；原生載體與深色模式仍需另行人工驗收。
+Web 驗證確認 LearnPilot Demo 功能流程可操作；Android package 已可交付，但原生裝置操作、iOS 載體與深色模式仍需另行人工驗收。
 
 ## 環境變數與敏感資訊
 

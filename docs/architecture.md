@@ -302,7 +302,7 @@ Server state library 不適用，因本階段沒有 server。
 - 無網路啟動。
 - 完整 Demo 重設與重跑。
 
-目前使用 Vitest 執行 domain 單元測試（8 項通過）。Reducer、component 與原生 iOS／Android 驗收仍是後續強化範圍。
+目前使用 Vitest 執行 domain 單元測試（8 項通過）。2026-08-16 的 Android release APK 已成功建置並完成簽章／manifest 靜態驗證；Reducer、component 與原生 iOS／Android 裝置驗收仍是後續強化範圍。
 
 ## 13. 信任與安全邊界
 

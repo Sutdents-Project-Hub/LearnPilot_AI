@@ -357,13 +357,13 @@ efficiency = 0.45 × accuracy + 0.35 × focus + 0.20 × completion
 
 輸出：
 
-- Web build 與 375px 手機尺寸的瀏覽器驗收；原生載體仍待人工驗收
+- Web build 與 375px 手機尺寸的瀏覽器驗收；Android release-mode APK 已建置，原生載體仍待人工驗收
 - QA 清單、錄影備案與離線資料
 - 簡報品牌、數據來源與產品狀態同步
 
 完成關卡：
 
-- Web build、重設流程與主要互動已實測；原生展示環境仍需另行確認。
+- Web build、重設流程與主要互動已實測；Android APK 的建置與結構已驗證，原生展示環境仍需另行確認。
 - 簡報、README、Demo 與實際功能一致。
 
 ## 12. 測試策略
@@ -373,6 +373,7 @@ efficiency = 0.45 × accuracy + 0.35 × focus + 0.20 × completion
 - 純函式單元測試：效率、黃金時段、風險、可重現性與輸入驗證（8 項通過）
 - Web build 與互動驗收：導航、風險詳情、接受建議、任務完成、新增紀錄、歷程切換與重設
 - 375px 手機尺寸視覺檢查與瀏覽器 console 檢查
+- Android native packaging：`assembleRelease` 成功，APK package ID、版本、v2 簽章與 manifest 已靜態驗證；未進行裝置安裝
 
 後續若擴充功能，至少包含：
 
@@ -381,7 +382,7 @@ efficiency = 0.45 × accuracy + 0.35 × focus + 0.20 × completion
 - 手動跨載體檢查：目標手機尺寸與 Web fallback
 - Demo rehearsal：完整流程、重設、離線與冷啟動
 
-目前使用 Vitest 執行 domain unit tests；原生 iOS／Android 與 component test 尚未建立，屬於後續硬化項目。
+目前使用 Vitest 執行 domain unit tests；Android release packaging 已驗證，但原生 iOS／Android 裝置驗收與 component test 尚未建立，屬於後續硬化項目。
 
 ## 13. 未決策清單
 

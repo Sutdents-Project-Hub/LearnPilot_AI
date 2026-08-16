@@ -28,6 +28,7 @@
 - Manifest：`app/package.json`
 - Lockfile：`app/pnpm-lock.yaml`
 - Expo config：`app/app.json`
+- Android package：`ai.learnpilot.demo`；versionCode：`1`
 - Source routes：`app/src/app/`
 - Node.js：`24.19.0`
 - pnpm：`11.16.0`（專案 pin；初始化曾使用 `11.19.0`）
@@ -45,7 +46,8 @@
 - Expo Web：`expo export --platform web` 已產生 14 條靜態路由；Playwright 已完成主要流程與 375px 視覺檢查
 - Browser console：0 errors、0 warnings
 - Browser localStorage：無項目；非靜態外部請求：0
-- iOS Simulator／Android Emulator／Expo Go：尚未驗證
+- Android release APK：2026-08-16 已由 `:app:assembleRelease` 成功建置，v2 簽章與 manifest 已驗證；debug certificate 僅供側載測試
+- iOS Simulator／Android Emulator／實體裝置：尚未驗證
 
 ## 功能領域
 

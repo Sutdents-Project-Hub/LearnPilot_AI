@@ -12,6 +12,8 @@ competition Demo 採最低權限設計：
 - 無裝置敏感權限
 - 無資料持久化
 
+2026-08-16 的 Android APK manifest 靜態檢查確認已排除 `SYSTEM_ALERT_WINDOW` 與舊版外部儲存權限；保留的 `INTERNET`、`ACCESS_NETWORK_STATE`、`VIBRATE` 均為 normal permissions。這不改變核心流程不發出 network request 的界線，也不取代實體裝置驗收。
+
 因此本階段不宣稱具有 production 級身份、安全或法規合規能力。
 
 ## 2. 威脅與控制

@@ -80,11 +80,11 @@
 
 ## 5. 展示環境策略
 
-Expo SDK 57 的離線 Demo 已完成；本輪以 Web static export 做實際展示驗收，原生載體仍待人工確認。
+Expo SDK 57 的離線 Demo 已完成；本輪以 Web static export 做實際展示驗收。2026-08-16 已成功產生可側載的 Android release-mode APK（debug certificate 簽署），但尚未完成原生裝置上的人工安裝與操作確認。
 
 建議準備：
 
-1. 主要：iOS Simulator 或 Android Emulator 中已預熱的 App。
+1. 主要：實體 Android 安裝已預熱的 APK，或 iOS Simulator／Android Emulator 中已預熱的 App。
 2. 備案：本機 Web build／dev server。
 3. 最後備案：預先錄製的完整操作影片與關鍵畫面截圖。
 

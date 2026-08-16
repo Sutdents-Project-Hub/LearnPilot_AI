@@ -10,6 +10,7 @@
 - 已實作：今日、分析、計畫、歷程四個頂層分頁；新增紀錄、風險詳情、建議詳情與 Demo 揭露頁
 - 已實作：`demo-v1` 完全合成 fixture、in-memory session、效率／黃金時段／風險／建議規則與重設流程
 - 已實作：無外部圖表套件的可存取文字摘要與輕量 bar chart；Vitest 純函式測試
+- 已驗證：Android release-mode APK 可由本機 native build 產出；仍未在實體裝置安裝操作
 - 不包含 backend、database、帳號、外部 AI API、雲端同步或部署設定
 
 ## 元件責任
@@ -68,9 +69,17 @@ pnpm --dir app start
 pnpm --dir app web
 ```
 
-`lint`、TypeScript no-emit、8 項 domain test 與 Expo Web static export 已在 2026-08-14 實際通過；Playwright 已驗證主要 Demo 流程。Android emulator、iOS Simulator 與實體 Expo Go 尚未驗證。
+`lint`、TypeScript no-emit、8 項 domain test 與 Expo Web static export 已在 2026-08-14 實際通過；Playwright 已驗證主要 Demo 流程。2026-08-16 已以 JDK 17、Android SDK API／Build Tools 36 與 NDK `27.1.12297006` 成功執行 `:app:assembleRelease`。Android emulator、iOS Simulator 與實體裝置尚未驗證。
 
 預期 runtime 是 Node.js `v24.x`、pnpm `11.16.0`。App 沒有外部 API、SDK、資料上傳或可操作的外部文件連結。
+
+## Android 側載包裝
+
+- `app.json` 的 Android application ID 是 `ai.learnpilot.demo`，versionCode 是 `1`；這是目前展示 APK 使用的 identity，尚未註冊 Google Play。
+- 本次輸出為 release-mode、Android debug certificate 簽署的 APK，僅供側載測試；可在 `dist/android/` 找到，但該資料夾已忽略、不可當成受版本控制的 release。
+- `blockedPermissions` 會移除 `SYSTEM_ALERT_WINDOW` 與舊版外部儲存權限。2026-08-16 的成品 manifest 僅含 framework 所需的 normal permissions：`INTERNET`、`ACCESS_NETWORK_STATE`、`VIBRATE`。
+- `expo prebuild` 會生成被忽略的 `android/` 目錄，並可能暫時改寫 `package.json` 的 Android／iOS 開發 scripts；保留 managed Expo script，且不提交生成的 native 目錄。
+- iOS 尚未設定 bundle identifier、Apple Team 或 signing profile；沒有 `.ipa`、`.mobileprovision` 或 `.mobileconfig` 交付檔。
 
 ## 環境與資料
 
